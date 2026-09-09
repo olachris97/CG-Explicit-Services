@@ -1,0 +1,130 @@
+@import "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* ===== CG Explicit Services brand palette ===== */
+  --color-primary: #29205F;
+  --color-secondary: #FF2F68;
+  --color-accent: #7138E8;
+  --color-orange-accent: #FF9F1C;
+  --color-text-brand: #777777;
+
+  /* Brand-named shade scales for direct utility use (bg-primary-500, text-secondary-600, etc.) */
+  --color-primary-50: #f2f2f5;
+  --color-primary-100: #e5e4ec;
+  --color-primary-200: #c7c5d5;
+  --color-primary-300: #a19db9;
+  --color-primary-400: #69638f;
+  --color-primary-500: #29205f;
+  --color-primary-600: #241c54;
+  --color-primary-700: #1e1744;
+  --color-primary-800: #181337;
+  --color-primary-850: #141030;
+  --color-primary-900: #110d28;
+  --color-primary-950: #0b091b;
+
+  --color-secondary-50: #fff3f6;
+  --color-secondary-100: #ffe6ed;
+  --color-secondary-200: #ffc9d8;
+  --color-secondary-300: #ffa3bd;
+  --color-secondary-400: #ff6d95;
+  --color-secondary-500: #ff2f68;
+  --color-secondary-600: #e0295c;
+  --color-secondary-700: #b82f4b;
+  --color-secondary-800: #941b3c;
+  --color-secondary-850: #801834;
+  --color-secondary-900: #6b142c;
+  --color-secondary-950: #470d1d;
+
+  --color-accent-50: #f6f3fe;
+  --color-accent-100: #eee7fc;
+  --color-accent-200: #dacbf9;
+  --color-accent-300: #c1a7f5;
+  --color-accent-400: #9c74ef;
+  --color-accent-500: #7138e8;
+  --color-accent-600: #6331cc;
+  --color-accent-700: #5128a7;
+  --color-accent-800: #422087;
+  --color-accent-850: #381c74;
+  --color-accent-900: #2f1861;
+  --color-accent-950: #201041;
+
+  --color-orange-accent-50: #fff9f1;
+  --color-orange-accent-100: #fff3e4;
+  --color-orange-accent-200: #ffe6c4;
+  --color-orange-accent-300: #ffd59b;
+  --color-orange-accent-400: #ffbc60;
+  --color-orange-accent-500: #ff9f1c;
+  --color-orange-accent-600: #e08c19;
+  --color-orange-accent-700: #b87214;
+  --color-orange-accent-800: #945c10;
+  --color-orange-accent-850: #80500e;
+  --color-orange-accent-900: #6b430c;
+  --color-orange-accent-950: #472d08;
+
+  /* Re-theme the existing Tailwind palettes so every already-written
+     utility class (bg-emerald-600, text-slate-900, etc.) picks up the
+     new CG Explicit Services brand colors automatically. */
+  --color-emerald-50: #fff3f6;
+  --color-emerald-100: #ffe6ed;
+  --color-emerald-200: #ffc9d8;
+  --color-emerald-300: #ffa3bd;
+  --color-emerald-400: #ff6d95;
+  --color-emerald-500: #ff2f68;
+  --color-emerald-600: #e0295c;
+  --color-emerald-700: #b82f4b;
+  --color-emerald-800: #941b3c;
+  --color-emerald-850: #801834;
+  --color-emerald-900: #6b142c;
+  --color-emerald-950: #470d1d;
+
+  --color-blue-400: #9c74ef;
+  --color-blue-500: #7138e8;
+  --color-blue-600: #6331cc;
+  --color-blue-950: #201041;
+
+  --color-slate-500: #777777;
+  --color-slate-600: #777777;
+  --color-slate-700: #1e1744;
+  --color-slate-800: #181337;
+  --color-slate-850: #141030;
+  --color-slate-900: #110d28;
+  --color-slate-950: #0b091b;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #29205f;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom fade effects and utility classes */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 20px 2px rgba(16, 185, 129, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-effect:hover::after {
+  opacity: 1;
+}
