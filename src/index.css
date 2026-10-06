@@ -1,0 +1,202 @@
+@import "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* CG Explicit: restrained corporate palette — white, black, maroon and navy */
+  --color-primary: #102A43;
+  --color-secondary: #7A1F2B;
+  --color-accent: #173F5F;
+  --color-orange-accent: #8F2D3A;
+  --color-text-brand: #4B5563;
+
+  --color-primary-50: #F3F7FA;
+  --color-primary-100: #E7EEF4;
+  --color-primary-200: #C9D8E4;
+  --color-primary-300: #A8BDCF;
+  --color-primary-400: #6F8FA8;
+  --color-primary-500: #315C78;
+  --color-primary-600: #254D69;
+  --color-primary-700: #1B405A;
+  --color-primary-800: #15344D;
+  --color-primary-850: #122F46;
+  --color-primary-900: #102A43;
+  --color-primary-950: #081A2B;
+
+  --color-secondary-50: #FBF3F4;
+  --color-secondary-100: #F5E3E5;
+  --color-secondary-200: #E8C4C8;
+  --color-secondary-300: #D79BA2;
+  --color-secondary-400: #B9636E;
+  --color-secondary-500: #8F2D3A;
+  --color-secondary-600: #7A1F2B;
+  --color-secondary-700: #671B25;
+  --color-secondary-800: #551720;
+  --color-secondary-850: #48141C;
+  --color-secondary-900: #3D1118;
+  --color-secondary-950: #280A0F;
+
+  --color-accent-50: #F2F6F9;
+  --color-accent-100: #E4ECF2;
+  --color-accent-200: #C7D7E3;
+  --color-accent-300: #A2BBCB;
+  --color-accent-400: #6F95AD;
+  --color-accent-500: #315C78;
+  --color-accent-600: #254D69;
+  --color-accent-700: #1B405A;
+  --color-accent-800: #15344D;
+  --color-accent-850: #122F46;
+  --color-accent-900: #102A43;
+  --color-accent-950: #081A2B;
+
+  --color-orange-accent-50: #FBF3F4;
+  --color-orange-accent-100: #F5E3E5;
+  --color-orange-accent-200: #E8C4C8;
+  --color-orange-accent-300: #D79BA2;
+  --color-orange-accent-400: #B9636E;
+  --color-orange-accent-500: #8F2D3A;
+  --color-orange-accent-600: #7A1F2B;
+  --color-orange-accent-700: #671B25;
+  --color-orange-accent-800: #551720;
+  --color-orange-accent-850: #48141C;
+  --color-orange-accent-900: #3D1118;
+  --color-orange-accent-950: #280A0F;
+
+  /* Re-map existing utility classes to the approved CG Explicit palette. */
+  --color-emerald-50: #FBF3F4;
+  --color-emerald-100: #F5E3E5;
+  --color-emerald-200: #E8C4C8;
+  --color-emerald-300: #D79BA2;
+  --color-emerald-400: #B9636E;
+  --color-emerald-500: #8F2D3A;
+  --color-emerald-600: #7A1F2B;
+  --color-emerald-700: #671B25;
+  --color-emerald-800: #551720;
+  --color-emerald-850: #48141C;
+  --color-emerald-900: #3D1118;
+  --color-emerald-950: #280A0F;
+
+  --color-blue-400: #6F95AD;
+  --color-blue-500: #315C78;
+  --color-blue-600: #254D69;
+  --color-blue-950: #081A2B;
+
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-850: #172033;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #050A10;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #0F172A;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: #F5E3E5;
+    color: #3D1118;
+  }
+}
+
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 20px 2px rgba(122, 31, 43, 0.12);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-effect:hover::after {
+  opacity: 1;
+}
+
+
+/* ---------- Responsive UI polish ---------- */
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+input, select, textarea { font-size: 16px; }
+
+@media (max-width: 767px) {
+  section { scroll-margin-top: 72px; }
+
+  .mobile-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+  /* Keep cards from feeling oversized on small screens. */
+  .rounded-3xl { border-radius: 1.25rem; }
+
+  /* Prevent long business/contact strings from forcing horizontal overflow. */
+  .break-mobile { overflow-wrap: anywhere; word-break: break-word; }
+}
+
+@media (max-width: 480px) {
+  .mobile-tight { padding-left: 1rem !important; padding-right: 1rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@layer utilities {
+  .btn-maroon {
+    background-color: var(--color-secondary-600);
+    color: #ffffff !important;
+  }
+  .btn-maroon:hover {
+    background-color: var(--color-secondary-500);
+    color: #ffffff !important;
+  }
+}
+
+
+/* Consistent public-page section surfaces and guaranteed contrast for maroon CTAs. */
+@layer utilities {
+  section.bg-slate-50 { background-color: #ffffff; }
+  button.bg-secondary-600, a.bg-secondary-600, button.bg-emerald-600, a.bg-emerald-600 {
+    color: #ffffff !important;
+  }
+  button.bg-secondary-600:hover, a.bg-secondary-600:hover, button.bg-emerald-600:hover, a.bg-emerald-600:hover {
+    color: #ffffff !important;
+  }
+}
+
+@layer utilities {
+  /* Brand section surfaces: alternate light navy / light maroon / white while reserving maroon for final CTAs. */
+  .section-white { background-color: #ffffff !important; }
+  .section-navy-soft { background-color: #F3F7FA !important; }
+  .section-maroon-soft { background-color: #FBF3F4 !important; }
+  .section-navy { background-color: #102A43 !important; color: #ffffff; }
+  .section-maroon { background-color: #7A1F2B !important; color: #ffffff; }
+  .section-maroon .text-slate-900,
+  .section-maroon .text-slate-950,
+  .section-maroon .text-primary-900,
+  .section-maroon .text-primary-950,
+  .section-maroon .text-slate-600,
+  .section-maroon .text-slate-500 { color: #ffffff !important; }
+  .section-maroon .text-secondary-600,
+  .section-maroon .text-secondary-700,
+  .section-maroon .text-emerald-600,
+  .section-maroon .text-emerald-700 { color: #F5E3E5 !important; }
+  .section-maroon .border-slate-100,
+  .section-maroon .border-slate-200 { border-color: rgba(255,255,255,.16) !important; }
+}

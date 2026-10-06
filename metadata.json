@@ -1,0 +1,6 @@
+{
+  "name": "CG Explicit Services",
+  "description": "Streamlining workflows, visualizing KPIs with real-time dashboards, and optimizing pricing systems to increase revenue and reduce operational costs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
