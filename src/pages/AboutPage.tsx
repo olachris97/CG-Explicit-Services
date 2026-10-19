@@ -2,7 +2,42 @@ import React from "react";
 import ResultsSection from "../components/ResultsSection";
 import ConsultationCTA from "../components/ConsultationCTA";
 import { Reveal } from "../components/motion/Reveal";
-import { Target, Eye, Handshake, LineChart, BrainCircuit, Database, Code2, GraduationCap } from "lucide-react";
+import { Target, Eye, Handshake, LineChart, BrainCircuit, Database, Code2, GraduationCap, Briefcase, MapPin, CalendarDays } from "lucide-react";
+
+// Live "x yrs y mos" duration from a start month to today (inclusive of the start month).
+function durationSince(startYear: number, startMonth: number) {
+  const now = new Date();
+  const totalMonths = (now.getFullYear() - startYear) * 12 + (now.getMonth() + 1 - startMonth) + 1;
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+  const parts: string[] = [];
+  if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
+  if (months > 0) parts.push(`${months} mo${months > 1 ? "s" : ""}`);
+  return parts.join(" ") || "1 mo";
+}
+
+const EXPERIENCE = [
+  {
+    role: "Senior Supervisor, Pricing & Business Optimization (Automation Workflow)",
+    company: "Yourspotrented & Famous Parking",
+    type: "Full-time",
+    period: "Jan 2024 – Present",
+    start: [2024, 1] as const,
+    location: "Chicago, Illinois, United States · Remote",
+    highlights: ["Competitive pricing analysis", "Business automation", "Revenue optimization"],
+    skills: [] as string[]
+  },
+  {
+    role: "Data Scientist",
+    company: "Upwork",
+    type: "Freelance",
+    period: "Jan 2021 – Present",
+    start: [2021, 1] as const,
+    location: "United States · Remote",
+    highlights: ["Data entries", "Exploratory data analysis on health information", "Algorithm selection and model training"],
+    skills: ["Machine Learning", "Computer Vision"]
+  }
+];
 
 export default function AboutPage() {
   const values = [
@@ -67,6 +102,49 @@ export default function AboutPage() {
               const I = Icon as React.ElementType;
               return <div key={i} className="border border-white/10 bg-white/[0.04] rounded-2xl p-5"><I className="w-5 h-5 text-secondary-300" /><p className="mt-3 text-sm font-semibold">{label}</p></div>;
             })}
+          </div>
+
+          {/* Work experience */}
+          <div className="mt-14 sm:mt-20">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-secondary-300 mb-3">Experience</p>
+            <h3 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight">Where the expertise comes from</h3>
+            <div className="mt-8 space-y-5 border-l border-white/15 pl-6 sm:pl-8">
+              {EXPERIENCE.map((job, i) => (
+                <Reveal key={job.role + job.company} delay={i * 0.08} y={16} className="relative">
+                  <span className="absolute -left-[33px] sm:-left-[41px] top-6 flex h-4 w-4 items-center justify-center rounded-full border-2 border-secondary-400 bg-primary-950" />
+                  <div className="border border-white/10 bg-white/[0.04] rounded-2xl p-5 sm:p-7">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                      <div>
+                        <h4 className="text-lg sm:text-xl font-display font-bold leading-snug">{job.role}</h4>
+                        <p className="mt-1 flex items-center gap-2 text-sm text-slate-300">
+                          <Briefcase className="w-4 h-4 text-secondary-300 shrink-0" />
+                          <span>{job.company} · {job.type}</span>
+                        </p>
+                      </div>
+                      <span className="inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold text-slate-200">
+                        <CalendarDays className="w-3.5 h-3.5 text-secondary-300" />
+                        {job.period} · {durationSince(job.start[0], job.start[1])}
+                      </span>
+                    </div>
+                    <p className="mt-2 flex items-center gap-2 text-xs text-slate-400">
+                      <MapPin className="w-3.5 h-3.5 shrink-0" /> {job.location}
+                    </p>
+                    <ul className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-2">
+                      {job.highlights.map((item) => (
+                        <li key={item} className="rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-xs sm:text-sm text-slate-200">{item}</li>
+                      ))}
+                    </ul>
+                    {job.skills.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {job.skills.map((skill) => (
+                          <span key={skill} className="rounded-full bg-secondary-600/25 px-3 py-1 text-[11px] font-semibold text-secondary-200">{skill}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

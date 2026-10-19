@@ -4,6 +4,9 @@ import { ContactInquiry, ConsultationBooking } from "../types";
 import { apiFetch } from "../lib/api";
 import { Reveal } from "./motion/Reveal";
 
+// Calendly discovery-call scheduler shown in the "Get Connected" section.
+export const CALENDLY_URL = "https://calendly.com/cgexplicitservices-info/cg-explicit-services-discovery-call";
+
 interface BookingFormProps {
   preFilledInquiry: ContactInquiry | null;
   onPreFillClear: () => void;
@@ -64,6 +67,21 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [calendlyHref, setCalendlyHref] = useState<string>(CALENDLY_URL);
+
+  // Calendly link for the "Lock In Appointment" button: carries over the visitor's
+  // name, email, notes and chosen date so they only need to confirm a time.
+  const buildCalendlyLink = () => {
+    const params = new URLSearchParams({
+      month: selectedDate.slice(0, 7),
+      date: selectedDate,
+      primary_color: "7a1f2b"
+    });
+    if (formData.name) params.set("name", formData.name);
+    if (formData.email) params.set("email", formData.email);
+    if (formData.problem) params.set("a1", formData.problem);
+    return `${CALENDLY_URL}?${params.toString()}`;
+  };
 
   // Sync state if parents pre-fill
   React.useEffect(() => {
@@ -111,6 +129,11 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
     setErrorMsg(null);
     setIsSubmitting(true);
 
+    // Open Calendly straight away (inside the click) so pop-up blockers allow it.
+    const calendlyLink = buildCalendlyLink();
+    const calendlyTab = window.open(calendlyLink, "_blank");
+    if (calendlyTab) calendlyTab.opener = null;
+
     try {
       // 1. Submit consultation booking
       const bookRes = await apiFetch("/api/book", {
@@ -147,7 +170,11 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
         throw new Error("Form submission failure");
       }
 
-      setSuccessMsg(`Success! Your 1-on-1 systems audit call is booked for ${formatSelectedDate(selectedDate)} at ${selectedTime}. We'll follow up at ${formData.email} with the consultation details.`);
+      setSuccessMsg(`Thanks, ${formData.name}! Your details are with our team. Confirm your call for ${formatSelectedDate(selectedDate)} in the Calendly tab we just opened — your calendar invite and meeting link come from Calendly.`);
+      setCalendlyHref(calendlyLink);
+
+      // If the browser blocked the new tab, take the visitor to Calendly directly.
+      if (!calendlyTab) window.location.href = calendlyLink;
       
       // Reset form
       setFormData({
@@ -161,7 +188,7 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
       
     } catch (err) {
       console.error(err);
-      setErrorMsg("Unable to book consultation. Please try again or email us directly.");
+      setErrorMsg("We couldn't save your details. You can still finish booking in Calendly, or email info@cgexplicitservices.com / sales@cgexplicitservices.com.");
     } finally {
       setIsSubmitting(false);
     }
@@ -184,6 +211,7 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
           </p>
         </div>
 
+
         {/* Dual Booking Widget Card */}
         <Reveal y={28} className="bg-slate-50 rounded-2xl sm:rounded-3xl border border-slate-100 p-4 sm:p-10 shadow-lg max-w-5xl mx-auto">
           {successMsg ? (
@@ -192,9 +220,17 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <div className="space-y-2 max-w-lg">
-                <h3 className="font-display font-bold text-2xl text-slate-900">Consultation Locked In</h3>
+                <h3 className="font-display font-bold text-2xl text-slate-900">Almost there — pick your time</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{successMsg}</p>
               </div>
+              <a
+                href={calendlyHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl text-xs transition-all"
+              >
+                Open Calendly to confirm your time
+              </a>
               <button
                 onClick={() => setSuccessMsg(null)}
                 className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl text-xs transition-all cursor-pointer"
@@ -449,6 +485,9 @@ export default function BookingForm({ preFilledInquiry, onPreFillClear }: Bookin
                     )}
                   </button>
                 </div>
+                <p className="text-[11px] text-slate-400 text-right">
+                  Clicking “Lock In Appointment” opens our Calendly calendar to confirm your time. Questions? <a href="mailto:info@cgexplicitservices.com" className="underline hover:text-slate-600">info@cgexplicitservices.com</a> · <a href="mailto:sales@cgexplicitservices.com" className="underline hover:text-slate-600">sales@cgexplicitservices.com</a>
+                </p>
 
               </div>
 

@@ -37,6 +37,8 @@ import {
 
 } from "./db";
 
+import { notifySales } from "./mailer";
+
 
 
 // Load environment variables
@@ -996,6 +998,23 @@ Return a structured JSON object with the following fields:
       });
 
       console.log("New consultation booked:", newBooking);
+
+      // Every booked appointment is emailed to the sales inbox (sales@cgexplicitservices.com).
+      void notifySales({
+        subject: `New consultation booked: ${name} — ${date} at ${time}`,
+        heading: "New consultation booked on the website",
+        replyTo: email,
+        fields: [
+          ["Name", name],
+          ["Email", email],
+          ["Date", date],
+          ["Time", `${time} (UTC-7)`],
+          ["Business type", businessType],
+          ["Problem / bottleneck", problem],
+          ["Audit report ID", auditReportId],
+          ["Booked via", "Website form → Calendly (visitor confirms the exact time in Calendly)"]
+        ]
+      });
 
       return res.status(201).json({ success: true, message: "Consultation booked successfully!", booking: newBooking });
 

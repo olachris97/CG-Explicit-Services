@@ -119,7 +119,7 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-[#f7f7fa] text-primary-500 flex">
       <aside className={`${mobileNav ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 fixed lg:static inset-y-0 left-0 z-50 w-64 bg-primary-950 text-white transition-transform duration-200 flex flex-col`}>
-        <div className="h-20 px-5 flex items-center border-b border-white/10"><img src="/logo.png" alt="CG Explicit Services" className="h-9 w-auto" /></div>
+        <div className="h-20 px-5 flex items-center border-b border-white/10"><span className="rounded-xl bg-white px-3 py-1.5"><img src="/logo.png" alt="CG Explicit Services" className="h-8 w-auto" /></span></div>
         <div className="p-4 flex-1">
           <p className="px-3 text-[10px] font-bold uppercase tracking-[.2em] text-white/40 mb-3">Workspace</p>
           <nav className="space-y-1">

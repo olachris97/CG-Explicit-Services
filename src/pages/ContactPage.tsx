@@ -68,14 +68,15 @@ export default function ContactPage() {
               <Mail className="w-5 h-5 text-emerald-400 shrink-0" />
               <div>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Email</span>
-                <span className="text-sm font-semibold">sales@cgexplicitservices.com</span>
+                <a href="mailto:info@cgexplicitservices.com" className="text-sm font-semibold block break-all hover:text-secondary-300 transition-colors">info@cgexplicitservices.com</a>
+                <a href="mailto:sales@cgexplicitservices.com" className="text-sm font-semibold block break-all hover:text-secondary-300 transition-colors">sales@cgexplicitservices.com</a>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-emerald-400 shrink-0" />
               <div>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Phone</span>
-                <span className="text-sm font-semibold">+1 303-720-6109</span>
+                <a href="tel:+14842125373" className="text-sm font-semibold hover:text-secondary-300 transition-colors">+1 (484) 212-5373</a>
               </div>
             </div>
             <div className="flex items-center gap-3">

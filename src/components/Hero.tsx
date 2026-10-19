@@ -12,69 +12,68 @@ const heroImage =
 
 export default function Hero({ onScrollTo, onOpenAudit }: HeroProps) {
   return (
-    <section id="hero" className="relative overflow-hidden bg-primary-950 pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
-      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
-      <div className="absolute -right-48 -top-48 h-[38rem] w-[38rem] rounded-full bg-secondary-700/20 blur-3xl" />
+    <section id="hero" className="relative overflow-hidden bg-[linear-gradient(135deg,#FBF3F4_0%,#F7F5F8_50%,#F3F7FA_100%)] pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200/70" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="flex flex-col space-y-6 sm:space-y-7 lg:col-span-6">
-            <div className="inline-flex w-fit items-center gap-2 border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-secondary-400" />
+            <div className="inline-flex w-fit items-center gap-2 border border-secondary-200 bg-white/80 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-primary-900 shadow-sm backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-secondary-600" />
               Automation • Data • Business Intelligence
             </div>
 
             <div>
-              <p className="mb-4 text-sm font-semibold text-secondary-300">CG Explicit Services</p>
-              <h1 className="font-display text-[2.75rem] font-extrabold leading-[0.94] tracking-[-0.045em] text-white sm:text-5xl lg:text-[60px]">
+              <p className="mb-4 text-sm font-semibold text-secondary-600">CG Explicit Services</p>
+              <h1 className="font-display text-[2.75rem] font-extrabold leading-[0.94] tracking-[-0.045em] text-primary-950 sm:text-5xl lg:text-[60px]">
                 Automate.
                 <br />
-                <span className="text-white">Optimize.</span>
+                <span className="text-primary-950">Optimize.</span>
                 <br />
-                <span className="text-secondary-300">Grow.</span>
+                <span className="text-secondary-600">Grow.</span>
               </h1>
             </div>
 
-            <p className="max-w-2xl text-[15px] leading-7 text-slate-300 sm:text-lg sm:leading-8">
+            <p className="max-w-2xl text-[15px] leading-7 text-slate-600 sm:text-lg sm:leading-8">
               We design automation, analytics and intelligent business systems that remove operational friction, reveal better decisions and create measurable room for growth.
             </p>
 
             <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center">
               <button
                 onClick={onOpenAudit}
-                className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-secondary-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-secondary-500"
+                className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-secondary-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-secondary-600/20 transition-all hover:bg-secondary-500"
               >
                 Get a Free Business Audit
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
               <button
                 onClick={() => onScrollTo("contact")}
-                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 font-bold text-white transition-all hover:border-white/40 hover:bg-white/15"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-primary-200 bg-white px-6 py-3.5 font-bold text-primary-900 shadow-sm transition-all hover:border-primary-300 hover:bg-primary-50"
               >
                 Book a Consultation
               </button>
             </div>
 
-            <div className="grid max-w-xl grid-cols-3 gap-3 sm:gap-5 border-t border-white/15 pt-6 sm:pt-7">
+            <div className="grid max-w-xl grid-cols-3 gap-3 sm:gap-5 border-t border-slate-200 pt-6 sm:pt-7">
               <div>
-                <p className="font-display text-xl font-extrabold text-white sm:text-3xl">75%+</p>
-                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.08em] text-slate-400 sm:text-xs">Repetitive work reduced</p>
+                <p className="font-display text-xl font-extrabold text-primary-950 sm:text-3xl">75%+</p>
+                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.08em] text-slate-500 sm:text-xs">Repetitive work reduced</p>
               </div>
-              <div className="border-l border-white/15 pl-5">
-                <p className="font-display text-xl font-extrabold text-white sm:text-3xl">12%</p>
-                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.08em] text-slate-400 sm:text-xs">Average revenue lift</p>
+              <div className="border-l border-slate-200 pl-5">
+                <p className="font-display text-xl font-extrabold text-primary-950 sm:text-3xl">12%</p>
+                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.08em] text-slate-500 sm:text-xs">Average revenue lift</p>
               </div>
-              <div className="border-l border-white/15 pl-5">
-                <p className="font-display text-xl font-extrabold text-secondary-300 sm:text-3xl">300+</p>
-                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.08em] text-slate-400 sm:text-xs">Hours reclaimed / month</p>
+              <div className="border-l border-slate-200 pl-5">
+                <p className="font-display text-xl font-extrabold text-secondary-600 sm:text-3xl">300+</p>
+                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.08em] text-slate-500 sm:text-xs">Hours reclaimed / month</p>
               </div>
             </div>
           </div>
 
           <div className="relative lg:col-span-6">
             <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
-              <div className="absolute -inset-4 rounded-[2.5rem] bg-secondary-700/20 blur-2xl" />
-              <div className="relative overflow-hidden rounded-[1.75rem] sm:rounded-[2.5rem] border border-white/15 bg-white/5 p-1.5 sm:p-2 shadow-2xl shadow-black/30">
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-white/60 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[1.75rem] sm:rounded-[2.5rem] border border-slate-200 bg-white p-1.5 sm:p-2 shadow-2xl shadow-primary-900/15">
                 <div className="relative aspect-[1/1] sm:aspect-[4/3.35] overflow-hidden rounded-[1.4rem] sm:rounded-[2rem] bg-slate-900">
                   <img src={heroImage} alt="Business professional reviewing analytics" className="h-full w-full object-cover" loading="eager" fetchPriority="high" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary-950/65 via-primary-900/5 to-transparent" />

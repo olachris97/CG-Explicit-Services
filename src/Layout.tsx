@@ -98,8 +98,8 @@ export default function Layout() {
 
             {/* Branding Column */}
             <div className="md:col-span-5 space-y-4">
-              <Link to="/" className="flex items-center cursor-pointer w-fit">
-                <img src="/logo.png" alt="CG Explicit Services" className="h-10 w-auto" />
+              <Link to="/" className="flex items-center cursor-pointer w-fit rounded-xl bg-white px-3 py-2 shadow-sm">
+                <img src="/logo.png" alt="CG Explicit Services" className="h-9 w-auto" />
               </Link>
               <p className="text-xs text-slate-400 font-normal leading-relaxed max-w-sm">
                 We design and engineer bespoke workflow automations, real-time metrics dashboards, and custom pricing arbitrage algorithms to plug margin leaks, scale transactions, and maximize net profits.
@@ -133,13 +133,16 @@ export default function Layout() {
             <div className="md:col-span-3 space-y-3.5">
               <span className="text-[10px] font-bold text-slate-200 tracking-wider uppercase block">DIRECT OFFICE</span>
               <div className="space-y-2 text-xs">
-                <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-blue-400" />
-                  <span>sales@cgexplicitservices.com</span>
+                <div className="flex items-start gap-2">
+                  <Mail className="w-3.5 h-3.5 text-blue-400 mt-0.5 shrink-0" />
+                  <span className="flex flex-col gap-1">
+                    <a href="mailto:info@cgexplicitservices.com" className="hover:text-slate-200 transition-colors break-all">info@cgexplicitservices.com</a>
+                    <a href="mailto:sales@cgexplicitservices.com" className="hover:text-slate-200 transition-colors break-all">sales@cgexplicitservices.com</a>
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-blue-400" />
-                  <span>+1 303-720-6109</span>
+                  <a href="tel:+14842125373" className="hover:text-slate-200 transition-colors">+1 (484) 212-5373</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-blue-400" />

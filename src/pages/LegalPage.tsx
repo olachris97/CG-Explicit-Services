@@ -18,7 +18,7 @@ const content = {
       ["5. Confidentiality", "Both parties should protect confidential business, technical, financial, and operational information shared during an engagement and use it only for the purposes of the engagement."],
       ["6. Results and Limitations", "We aim to improve efficiency, visibility, and commercial performance, but no specific revenue, savings, or profitability outcome is guaranteed. Results depend on the client's data, market conditions, implementation, and other factors outside our control."],
       ["7. Changes and Termination", "Project changes may require an updated scope, timeline, or fee. Either party may request termination subject to the applicable service agreement and payment for work already completed."],
-      ["8. Contact", "Questions about these terms can be directed to sales@cgexplicitservices.com."]
+      ["8. Contact", "Questions about these terms can be directed to info@cgexplicitservices.com or sales@cgexplicitservices.com."]
     ]
   },
   privacy: {
@@ -33,7 +33,7 @@ const content = {
       ["4. Data Security", "We use reasonable technical and organizational measures to protect information. No internet transmission or storage system can be guaranteed to be completely secure."],
       ["5. Retention", "We retain information for as long as reasonably necessary for the purpose for which it was collected, to provide services, maintain business records, resolve issues, or comply with applicable obligations."],
       ["6. Your Choices", "You may contact us to ask about the personal information we hold about you or to request correction of inaccurate information, subject to applicable legal and operational requirements."],
-      ["7. Contact", "Privacy questions can be sent to sales@cgexplicitservices.com."]
+      ["7. Contact", "Privacy questions can be sent to info@cgexplicitservices.com or sales@cgexplicitservices.com."]
     ]
   },
   sla: {
@@ -49,7 +49,7 @@ const content = {
       ["5. Client Dependencies", "Clients should provide accurate credentials, approvals, source data, access, and feedback promptly. Delays in these dependencies can pause or extend the service timeline."],
       ["6. Third-Party Services", "Availability and performance of external platforms, APIs, hosting providers, payment processors, communication tools, and other third-party services are outside our direct control."],
       ["7. Service Review", "For ongoing engagements, we can review performance, outstanding issues, priorities, and optimization opportunities at agreed intervals."],
-      ["8. Contact", "Service-level questions can be sent to sales@cgexplicitservices.com."]
+      ["8. Contact", "Service-level questions can be sent to info@cgexplicitservices.com or sales@cgexplicitservices.com."]
     ]
   }
 } as const;

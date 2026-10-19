@@ -152,17 +152,26 @@ export default function Home() {
                 We Also Handle Talent Hire
               </p>
               <p className="text-slate-600 text-base leading-relaxed max-w-2xl">
-                Need skilled people, not just smarter systems? Through our partner platform HiresExact, we help you source and hire vetted remote talent to run and scale the workflows we build for you.
+                Need skilled people, not just smarter systems? Through our partner platforms HiresExact and StaffBrigade, we help you source and hire vetted remote talent to run and scale the workflows we build for you.
               </p>
             </Reveal>
-            <Reveal delay={0.12} y={16} className="lg:col-span-4 flex lg:justify-end">
+            <Reveal delay={0.12} y={16} className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
               <a
                 href="https://hiresexact.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary-600 hover:bg-secondary-500 text-white font-bold rounded-xl text-sm transition-all shadow-md shadow-secondary-600/20 cursor-pointer whitespace-nowrap"
+                className="inline-flex w-full sm:w-auto lg:w-64 items-center justify-center gap-2 px-6 py-3.5 bg-secondary-600 hover:bg-secondary-500 text-white font-bold rounded-xl text-sm transition-all shadow-md shadow-secondary-600/20 cursor-pointer whitespace-nowrap"
               >
                 Hire Talent on HiresExact
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.staffbrigade.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full sm:w-auto lg:w-64 items-center justify-center gap-2 px-6 py-3.5 bg-primary-900 hover:bg-primary-800 text-white font-bold rounded-xl text-sm transition-all shadow-md shadow-primary-900/20 cursor-pointer whitespace-nowrap"
+              >
+                Hire Talent on StaffBrigade
                 <ExternalLink className="w-4 h-4" />
               </a>
             </Reveal>
